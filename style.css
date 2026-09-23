@@ -1,0 +1,1214 @@
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    background-color: rgb(32, 25, 19);
+}
+
+.corpo-todo {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/************* NAV **************/
+
+.navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgb(32, 25, 19);
+}
+
+
+/************* LOGO **************/
+
+.img-dentro {
+    width: 170px;
+    height: auto;
+
+    margin-left: 20px;
+}
+
+
+/************* MENU DESKTOP **************/
+
+.link-nav {
+    list-style: none;
+
+    display: flex;
+    gap: 50px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+}
+
+.li-links {
+    color: rgb(204, 171, 114);
+
+    text-decoration: none;
+
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+
+    cursor: pointer;
+
+    border-bottom: 2px solid transparent;
+
+    padding-bottom: 8px;
+    padding-left: 5px;
+    padding-right: 15px;
+
+    transition: border-bottom 400ms ease;
+}
+
+.li-links:hover {
+    border-bottom: 3px solid rgb(204, 171, 114);
+}
+
+
+/************* BOTÃO MENU **************/
+
+/* Fica escondido no desktop */
+
+.menu-botao {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.menu-botao span {
+    display: block;
+
+    width: 25px;
+    height: 3px;
+
+    background-color: rgb(204, 171, 114);
+
+    border-radius: 3px;
+
+    transition: 0.3s;
+}
+
+
+/************* MOBILE **************/
+
+.primeiro-texto-menu,
+.segundo-texto-menu {
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+
+    /******** NAV ********/
+
+    .navbar {
+        width: 100%;
+        height: 70px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0 15px;
+
+        box-sizing: border-box;
+
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        z-index: 1000;
+    }
+
+
+    /******** LOGO ********/
+
+    .img-dentro {
+        width: 180px;
+
+        margin-left: 0;
+    }
+
+
+    /******** BOTÃO ********/
+
+    .menu-botao {
+        display: flex;
+
+        position: relative;
+
+        z-index: 1002;
+    }
+
+
+    /******** MENU FECHADO ********/
+
+    .link-nav {
+        display: none;
+        counter-reset: menu;
+    }
+
+    .link-nav li {
+    counter-increment: menu;
+    }
+
+    .link-nav li::before {
+        content: "0" counter(menu);
+        color: rgb(150, 120, 70);
+        font-size: 14px;
+        margin-right: 5px;
+        letter-spacing: 1px;
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+
+    /******** MENU ABERTO ********/
+
+    .link-nav.ativo {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        margin: 0;
+        padding: 0 0 100px 40px;
+        box-sizing: border-box;
+
+        background-image: url("imagem/fundo-dropdown.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+
+        gap: 20px;
+
+        transform: none;
+        z-index: 1001;
+    }
+
+    
+
+
+    /******** LINKS MOBILE ********/
+
+    .li-links {
+        color: rgb(248, 245, 242);
+        font-size: 34px;
+        letter-spacing: 1.5px;
+        padding: 10px;
+        border-bottom: 2px solid transparent;
+    }
+
+    .li-links-contatos{
+        padding-bottom: 30px;
+    }
+
+    .li-links:hover {
+        border-bottom: 3px solid rgb(204, 171, 114);
+    }
+
+
+    .link-nav.ativo .textos-menu {
+        display: block;
+        border-top: 1px solid rgb(199, 176, 143);
+        width: 90%;
+    }
+
+    .primeiro-texto-menu,
+    .segundo-texto-menu {
+        display: block;
+        color: rgb(204, 171, 114);
+        font-size: 15px;
+        text-align: left;
+        margin: 0;
+        padding-top: 30px;
+        line-height: 1.5;
+        letter-spacing: 1px;
+    }
+
+    .segundo-texto-menu{
+        padding-top: 18px;
+        padding-bottom: 18px;
+        background: linear-gradient(
+        90deg,
+        rgba(130, 104, 62, 1) 0%,
+        rgba(204, 171, 114, 1) 50%
+    );
+        border-radius: 2px;
+        font-size: 15px;
+    }
+
+    .li-link-insta{
+        color: rgb(32, 25, 19);
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .img-insta{
+        width: 30px;
+        object-fit: contain;
+    }
+
+
+    .link-nav.ativo .primeiro-texto-menu {
+        margin-bottom: 20px;
+    }
+
+    /******** IMAGEM DA CAPA ********/
+
+    .img-capa {
+        display: block;
+
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+
+        padding-top: 120px;
+    }
+
+}
+
+/*-----------------WHATSAPP------------------*/
+
+.whatsapp {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.whatsapp:hover {
+    transform: scale(1.1);
+}
+
+
+/*-----------------PRIMEIRA SECTION------------------*/
+
+.main-css {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+.primeira-section-home {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 80px;
+
+    padding: 100px 9%;
+
+    box-sizing: border-box;
+}
+
+.bloco-esquerdo-home {
+    width: 500px;
+}
+
+.h1-primeira-section {
+    color: rgb(248, 245, 242);
+    font-size: 50px;
+
+    border-bottom: 1px solid rgb(199, 176, 143);
+
+    width: 45%;
+
+    padding-bottom: 15px;
+}
+
+.span-nome {
+    color: rgb(204, 171, 114);
+}
+
+.h3-primeira-section {
+    color: rgb(194, 194, 194);
+
+    font-family: "DM Sans", sans-serif;
+    font-size: small;
+    letter-spacing: 1px;
+}
+
+.p-primeira-section {
+    color: rgb(194, 194, 194);
+
+    font-family: "DM Sans", system-ui, sans-serif;
+    font-size: small;
+    letter-spacing: 1px;
+
+    line-height: 1.6;
+}
+
+.button-whatsapp {
+    text-decoration: none;
+
+    color: rgb(32, 25, 19);
+
+    font-family: "DM Sans", system-ui, sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+.div-button-whatsapp {
+    background: linear-gradient(
+        90deg,
+        rgba(130, 104, 62, 1) 0%,
+        rgba(204, 171, 114, 1) 50%
+    );
+
+    padding-top: 18px;
+    padding-bottom: 18px;
+
+    border-radius: 2px;
+
+    font-size: 15px;
+}
+
+.whatsapp-primeira-section {
+    width: 25px;
+}
+
+.segundo-bloco {
+    width: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 30px;
+}
+
+.segundo-bloco img {
+    width: 350px;
+    max-width: 100%;
+    height: auto;
+
+    display: block;
+}
+
+
+/************** MOBILE PRIMEIRA SECTION **************/
+
+@media (max-width: 768px) {
+
+    .main-css {
+        width: 100%;
+    }
+
+    .primeira-section-home {
+        width: 100%;
+
+        min-height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 0;
+
+        padding: 70px 0 50px 0;
+
+        align-items: center;
+    }
+
+
+    /* IMAGEM FICA PRIMEIRO */
+
+    .segundo-bloco {
+        order: -1;
+
+        position: relative;
+
+        width: 100vw;
+
+        padding: 0;
+
+        display: block;
+
+        overflow: hidden;
+    }
+
+
+    .segundo-bloco img {
+        display: block;
+
+        width: 100vw;
+        max-width: none;
+
+        height: auto;
+
+        margin: 0;
+    }
+
+
+    /* ESFUMADO NA PARTE DE BAIXO DA IMAGEM */
+
+    .segundo-bloco::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 35%;
+
+        background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(32, 25, 19, 0.2) 25%,
+            rgba(32, 25, 19, 0.7) 65%,
+            rgb(32, 25, 19) 100%
+        );
+
+        pointer-events: none;
+    }
+
+
+    /* BLOCO DO TEXTO */
+
+    .bloco-esquerdo-home {
+        width: 100%;
+
+        padding: 40px 30px 0;
+
+        box-sizing: border-box;
+    }
+
+
+    .h1-primeira-section {
+        width: 100%;
+
+        font-size: 40px;
+
+        margin-top: 0;
+    }
+
+
+    .h3-primeira-section {
+        font-size: 12px;
+    }
+
+
+    .p-primeira-section {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+
+    .div-button-whatsapp {
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+}
+
+
+
+
+
+/************** SEGUNDA SECTION **************/
+
+
+.segunda-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card-atuacao {
+    width: 100%;
+    min-height: 160px;
+    padding: 25px;
+    box-sizing: border-box;
+
+    border-bottom: 1px solid rgba(204, 171, 114, 0.5);
+
+    position: relative;
+
+    transition: 0.3s ease;
+}
+
+.cabecalho-card {
+    width: 100%;
+}
+
+.card-atuacao h3 {
+    margin: 0 50px 12px 0;
+    color: rgb(204, 171, 114);
+    font-size: 22px;
+    font-family: century;
+    font-weight: 500;
+}
+
+
+.card-atuacao h4 {
+    margin: 0 50px 12px 0;
+    color: rgb(194, 194, 194);
+    font-family: arial;
+    font-size: 12px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+.card-atuacao ul {
+    display: none;
+    margin: 0;
+    color: rgb(194, 194, 194);
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+
+.card-atuacao.aberto ul {
+    display: block;
+    list-style-type: none;
+}
+
+
+/* BOTÃO + */
+
+.botao-expandir {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: rgb(32, 25, 19);
+    background: transparent;
+    color: rgb(204, 171, 114);
+
+    font-size: 25px;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+/**************  MOBILE SEGUNDA SECTION **************/
+
+@media (max-width: 768px) {
+
+    .segunda-section {
+        width: 100%;
+        padding: 50px 20px;
+
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card-atuacao {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .card-atuacao h3 {
+        font-size: 20px;
+    }
+
+    .card-atuacao ul {
+        font-size: 13px;
+    }
+
+    .botao-expandir {
+        width: 30px;
+        height: 30px;
+        font-size: 25px;
+    }
+
+}
+
+
+
+/**************  TERCEIRA SECTION **************/
+
+.fluxo-atendimento {
+    padding: 100px 8%;
+    background-color: rgb(247, 241, 238);
+}
+
+.titulo-atendimento {
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.titulo-atendimento h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: rgb(122, 95, 60);
+}
+
+.titulo-atendimento p {
+    font-size: 18px;
+    font-family: arial, sans-serif;
+    color: rgb(32, 25, 19);
+    letter-spacing: 1px;
+}
+
+.grid-passos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.passo {
+    padding: 1px;
+    border: 1px solid rgb(247, 241, 238);
+}
+
+.numero {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(122, 95, 60);
+}
+
+.passo h2 {
+    margin: 20px 0;
+    color: rgb(32, 25, 19);
+}
+
+.passo p {
+    line-height: 1.6;
+    color: rgb(32, 25, 19);
+}
+
+
+/**************  MOBILE TERCEIRA SECTION **************/
+
+@media (max-width: 768px) {
+
+    .fluxo-atendimento {
+        padding: 70px 25px;
+    }
+
+    .titulo-atendimento h1 {
+        font-size: 36px;
+    }
+
+    .grid-passos {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+}
+
+
+
+/**************  QUARTA SECTION **************/
+
+
+.quarta-section {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    background-color: rgb(247, 241, 238);
+}
+
+/* IMAGEM DO LADO ESQUERDO */
+
+.div-img-quarta-section {
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.div-img-quarta-section img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+    
+    display: block;
+}
+
+
+/* LADO DIREITO */
+
+.div-avaliacao-quarta-section {
+    width: 50%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+
+/* TÍTULO */
+
+.titulo-avaliacao{
+    margin: 0;
+    letter-spacing: 1px;
+    color: rgb(122, 95, 60);
+    font-size: 42px;
+    text-align: center;
+}
+
+
+/* ESTRELAS */
+
+.estrelas-avaliacao{
+    width: 180px;
+    margin-top: 15px;
+}
+
+
+/* TEXTO */
+
+.texto-avaliacao p {
+    color: rgb(32, 25, 19);
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-family: arial, sans-serif;
+}
+
+.texto-avaliacao span {
+    color: rgb(122, 95, 60);
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: arial, sans-serif;
+}
+
+
+/* GOOGLE */
+
+.google-avaliacao{
+    width: 150px;
+    margin: 10px 0 20px;
+}
+
+
+/* CARROSSEL */
+
+.carousel {
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    transition: transform 1s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-slide img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+}
+
+/* SLIDE VISÍVEL */
+
+.carousel-slide.ativo {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+
+
+/*********** DESKTOP QUARTA SECTION************/
+
+
+
+@media (max-width: 768px) {
+
+    .quarta-section {
+        width: 100%;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    /* IMAGEM EM CIMA */
+
+    .div-img-quarta-section {
+        width: 100%;
+        height: 44vh;
+
+        overflow: hidden;
+    }
+
+    .div-img-quarta-section img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        display: block;
+    }
+
+
+    /* CONTEÚDO EMBAIXO */
+
+    .div-avaliacao-quarta-section {
+        width: 100%;
+        min-height: auto;
+        padding: 25px 20px 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+
+    /* TÍTULO */
+
+    .titulo-avaliacao{
+        font-size: 32px;
+    }
+
+
+    /* ESTRELAS */
+
+    .estrelas-avaliacao{
+        width: 150px;
+    }
+
+
+    /* TEXTO */
+
+    .texto-avaliacao{
+        font-size: 16px;
+    }
+
+
+    /* GOOGLE */
+
+    .google-avaliacao{
+        width: 100px;
+        margin-bottom: 20px;
+    }
+
+
+    /* CARROSSEL */
+
+    .carousel {
+        width: 100%;
+        max-width: 100%;
+        min-height: 180px;
+
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+}
+
+
+
+/******************* FOOTER  *******************/
+
+.footer-css{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+
+.h1-footer{
+    color: rgb(247, 241, 238);
+    font-family: "Libre Caslon Display", serif;;
+    max-width: 70%;
+    font-size: 70px;
+    font-weight: 100;
+}
+
+.h1-footer span{
+    color: rgb(204, 171, 114);
+    font-size: 75px;
+    font-family: lucida calligraphy;
+    letter-spacing: 1px;
+}
+
+.footer-button-whatsapp {
+    background: linear-gradient(
+        90deg,
+        rgba(130, 104, 62, 1) 0%,
+        rgba(204, 171, 114, 1) 50%
+    );
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-radius: 3px;
+    font-size: 15px;
+    max-width: 30%;
+}
+
+.h5-linha{
+    border-top: 1px solid rgb(130, 104, 62, 1);
+    margin-top: 45px;
+    color: rgb(204, 171, 114);
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.h5-linha h5{
+    padding-bottom: 0%;
+}
+
+.ul-footer{
+    list-style: none;
+    color: rgb(187, 185, 185);
+    font-family: arial, sans-serif;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 15px;
+}
+
+.end-footer{
+    color: rgb(155, 153, 153);
+    max-width: 30%;
+    font-family: arial, sans-serif;
+    letter-spacing: 1px;
+    line-height: 20px;
+    font-size: 13px;
+    padding-left: 33px;
+}
+
+.img-logo-footer{
+    max-width: 55px;
+}
+
+.bloco-footer{
+    display: flex;
+}
+
+.logo-footer{
+    border-top: 1px solid rgb(81, 69, 69);
+    padding-top: 18px;
+    padding-bottom: 20px;
+}
+
+
+
+/******************* FOOTER DESKTOP *******************/
+
+
+
+
+@media (max-width: 768px) {
+
+    .footer-css {
+        min-height: auto;
+        width: 100%;
+        padding: 60px 20px 40px;
+        box-sizing: border-box;
+    }
+
+
+    /* TÍTULO */
+
+    .h1-footer {
+        max-width: 100%;
+        margin: 0 auto 35px;
+        text-align: center;
+
+        font-size: 42px;
+        line-height: 1.15;
+    }
+
+    .h1-footer span {
+        font-size: 44px;
+    }
+
+
+    /* BOTÃO WHATSAPP */
+
+    .footer-button-whatsapp {
+        max-width: 100%;
+        width: fit-content;
+        margin: 0 auto;
+
+        padding: 16px 25px;
+    }
+
+    .button-whatsapp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        white-space: nowrap;
+    }
+
+
+    /* TÍTULO CONTATOS */
+
+    .h5-linha {
+        width: 100%;
+        margin-top: 55px;
+
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .h5-linha h5 {
+        margin: 20px 0;
+    }
+
+
+    /* CONTATOS + ENDEREÇO */
+
+    .bloco-footer {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .ul-footer {
+        padding: 0;
+        margin: 0;
+
+        text-align: center;
+
+        line-height: 30px;
+        font-size: 14px;
+    }
+
+
+    .end-footer {
+        max-width: 100%;
+        padding-left: 0;
+        margin-top: 25px;
+
+        text-align: center;
+
+        line-height: 20px;
+        font-size: 12px;
+    }
+
+
+    /* LOGO */
+
+    .logo-footer {
+        width: 100%;
+        margin-top: 35px;
+
+        display: flex;
+        justify-content: center;
+
+        padding-top: 20px;
+    }
+
+    .img-logo-footer {
+        max-width: 55px;
+    }
+
+}
